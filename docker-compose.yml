@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: jenkins.Dockerfile
+    volumes:
+      - /tmp/jenkins_home:/var/jenkins_home
+      - $PWD:.
+    ports:
+    - 8080:8080
+
+  website:
+    build:
+      context: .
+    ports:
+    -  80:3000
